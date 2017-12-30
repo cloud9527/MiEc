@@ -1,15 +1,17 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
+
     defaultConfig {
-        applicationId "com.example.cloud.miec"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
     buildTypes {
         release {
@@ -21,6 +23,6 @@ android {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    annotationProcessor project(':mi_compiler')
-    compile project(':mi_ec')
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile project(':mi_core')
 }
