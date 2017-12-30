@@ -29,4 +29,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     testCompile 'junit:junit:4.12'
     compile project(':mi_annotations')
+
+    compile 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2' // (v2.0.1)
+    compile 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2' // (v4.5)
 }

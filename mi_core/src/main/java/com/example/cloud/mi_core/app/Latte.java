@@ -2,7 +2,7 @@ package com.example.cloud.mi_core.app;
 
 import android.content.Context;
 
-import java.util.WeakHashMap;
+import java.util.HashMap;
 
 /**
  * Created by Administrator on 2017/12/30.
@@ -14,7 +14,7 @@ public class Latte {
         return Configurator.getInstance();
     }
 
-    private static WeakHashMap<String, Object> getConfigurator() {
+    private static HashMap<String, Object> getConfigurator() {
         return Configurator.getInstance().getLatteConfigs();
     }
 }
