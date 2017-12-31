@@ -9,7 +9,7 @@ import com.joanzapata.iconify.fonts.FontAwesomeModule;
  * Created by Administrator on 2017/12/30.
  */
 
-public class MiApp extends Application {
+public class ExampleApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();

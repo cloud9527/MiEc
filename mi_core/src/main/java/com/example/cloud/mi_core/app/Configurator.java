@@ -1,5 +1,6 @@
 package com.example.cloud.mi_core.app;
 
+
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
 
@@ -14,7 +15,6 @@ public class Configurator {
     private static final HashMap<String, Object> LATTE_CONFIGS = new HashMap<>();
     private static final ArrayList<IconFontDescriptor> ICONS = new ArrayList<>();
 
-
     private Configurator() {
         LATTE_CONFIGS.put(ConfigType.CONFIG_READY.name(), false);
     }
@@ -27,15 +27,19 @@ public class Configurator {
         return Holder.INSTANCE;
     }
 
-    public final Configurator withIcon(IconFontDescriptor descriptor){
-        ICONS.add(descriptor);
-        return this;
+    public final void configure() {
+        initIcons();
+        LATTE_CONFIGS.put(ConfigType.CONFIG_READY.name(), true);
     }
 
     private static class Holder {
         private static final Configurator INSTANCE = new Configurator();
     }
 
+    public final Configurator withIcon(IconFontDescriptor descriptor) {
+        ICONS.add(descriptor);
+        return this;
+    }
 
     private void initIcons() {
         if (ICONS.size() > 0) {
@@ -46,10 +50,6 @@ public class Configurator {
         }
     }
 
-    public final void configure() {
-        initIcons();
-        LATTE_CONFIGS.put(ConfigType.CONFIG_READY.name(), true);
-    }
 
     public final Configurator withApiHost(String host) {
         LATTE_CONFIGS.put(ConfigType.API_HOST.name(), host);
