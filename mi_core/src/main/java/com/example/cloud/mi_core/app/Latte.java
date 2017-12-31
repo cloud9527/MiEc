@@ -14,7 +14,7 @@ public class Latte {
         return Configurator.getInstance();
     }
 
-    private static HashMap<String, Object> getConfigurator() {
+    public static HashMap<String, Object> getConfigurator() {
         return Configurator.getInstance().getLatteConfigs();
     }
 
