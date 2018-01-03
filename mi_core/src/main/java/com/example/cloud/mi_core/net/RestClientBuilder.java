@@ -1,9 +1,12 @@
 package com.example.cloud.mi_core.net;
 
+import android.content.Context;
+
 import com.example.cloud.mi_core.net.callback.IError;
 import com.example.cloud.mi_core.net.callback.IFailure;
 import com.example.cloud.mi_core.net.callback.IRequest;
 import com.example.cloud.mi_core.net.callback.ISuccess;
+import com.example.cloud.mi_core.ui.LoaderStyle;
 
 import java.util.WeakHashMap;
 
@@ -15,13 +18,15 @@ import okhttp3.ResponseBody;
  */
 
 public class RestClientBuilder {
-    private String mUrl;
+    private String mUrl = null;
     private static final WeakHashMap<String, Object> PARAMS = RestCreator.getParams();
-    private IRequest mIRequest;
-    private ISuccess mISuccess;
-    private IFailure mIFailure;
-    private IError mIError;
-    private ResponseBody mBody;
+    private IRequest mIRequest = null;
+    private ISuccess mISuccess = null;
+    private IFailure mIFailure = null;
+    private IError mIError = null;
+    private ResponseBody mBody = null;
+    private Context mContext = null;
+    private LoaderStyle mLoaderStyle = null;
 
     RestClientBuilder() {
     }
@@ -66,7 +71,19 @@ public class RestClientBuilder {
         return this;
     }
 
+    public final RestClientBuilder loader(Context context, LoaderStyle loaderStyle) {
+        this.mContext = context;
+        this.mLoaderStyle = loaderStyle;
+        return this;
+    }
+
+    public final RestClientBuilder loader(Context context) {
+        this.mContext = context;
+        this.mLoaderStyle = LoaderStyle.LineScalePulseOutIndicator;
+        return this;
+    }
+
     public final RestClient build() {
-        return new RestClient(mUrl, PARAMS, mIRequest, mISuccess, mIFailure, mIError, mBody);
+        return new RestClient(mUrl, PARAMS, mIRequest, mISuccess, mIFailure, mIError, mBody, mContext, mLoaderStyle);
     }
 }
