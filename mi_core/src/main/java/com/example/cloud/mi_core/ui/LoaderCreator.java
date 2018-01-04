@@ -1,6 +1,7 @@
 package com.example.cloud.mi_core.ui;
 
 import android.content.Context;
+import android.text.TextUtils;
 
 import com.wang.avi.AVLoadingIndicatorView;
 import com.wang.avi.Indicator;
@@ -27,7 +28,7 @@ public class LoaderCreator {
     }
 
     private static Indicator getIndicator(String name) {
-        if (name == null || name.isEmpty()) {
+        if (TextUtils.isEmpty(name)) {
             return null;
         }
 

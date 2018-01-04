@@ -9,7 +9,6 @@ import com.example.cloud.mi_core.net.RestClient;
 import com.example.cloud.mi_core.net.callback.IError;
 import com.example.cloud.mi_core.net.callback.IFailure;
 import com.example.cloud.mi_core.net.callback.ISuccess;
-import com.example.cloud.mi_core.ui.LoaderStyle;
 
 /**
  * Created by cloud on 2017/12/31.
@@ -29,7 +28,7 @@ public class ExampleDelegate extends LatteDelegate {
     private void test() {
         RestClient.builder()
                 .url("http://news.baidu.com/")
-                .loader(getContext(), LoaderStyle.BallGridPulseIndicator)
+                .loader(getContext())
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String response) {
