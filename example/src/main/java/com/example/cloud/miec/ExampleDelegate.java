@@ -3,6 +3,7 @@ package com.example.cloud.miec;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.cloud.mi_core.delegates.LatteDelegate;
 import com.example.cloud.mi_core.net.RestClient;
@@ -32,7 +33,7 @@ public class ExampleDelegate extends LatteDelegate {
                 .success(new ISuccess() {
                     @Override
                     public void onSuccess(String response) {
-//                        Toast.makeText(getContext(), response, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), response, Toast.LENGTH_LONG).show();
                     }
                 })
                 .error(new IError() {
