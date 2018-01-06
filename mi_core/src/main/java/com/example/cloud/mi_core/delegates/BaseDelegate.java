@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.cloud.mi_core.activites.ProxyActivity;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
@@ -29,6 +31,8 @@ public abstract class BaseDelegate extends SwipeBackFragment {
             rootView = inflater.inflate((Integer) setLayout(), container, false);
         } else if (setLayout() instanceof View) {
             rootView = (View) setLayout();
+        } else {
+            throw new ClassCastException("setLayout() type must be int or view");
         }
         if (rootView != null) {
             mUnbinder = ButterKnife.bind(this, rootView);
@@ -36,6 +40,10 @@ public abstract class BaseDelegate extends SwipeBackFragment {
         }
         return rootView;
 
+    }
+
+    public final ProxyActivity getProxActivity() {
+        return (ProxyActivity) _mActivity;
     }
 
     @Override
