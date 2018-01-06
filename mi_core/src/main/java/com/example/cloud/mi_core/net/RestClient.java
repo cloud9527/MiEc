@@ -8,8 +8,8 @@ import com.example.cloud.mi_core.net.callback.IRequest;
 import com.example.cloud.mi_core.net.callback.ISuccess;
 import com.example.cloud.mi_core.net.callback.RequestCallbacks;
 import com.example.cloud.mi_core.net.down.DownloadHandler;
-import com.example.cloud.mi_core.ui.LatteLoader;
-import com.example.cloud.mi_core.ui.LoaderStyle;
+import com.example.cloud.mi_core.ui.loader.LatteLoader;
+import com.example.cloud.mi_core.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;

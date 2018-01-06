@@ -1,4 +1,4 @@
-package com.example.cloud.mi_core.ui;
+package com.example.cloud.mi_core.ui.loader;
 
 /**
  * Created by cloud on 2018/1/3.

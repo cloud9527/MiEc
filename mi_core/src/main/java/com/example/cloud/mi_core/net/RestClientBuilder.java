@@ -6,7 +6,7 @@ import com.example.cloud.mi_core.net.callback.IError;
 import com.example.cloud.mi_core.net.callback.IFailure;
 import com.example.cloud.mi_core.net.callback.IRequest;
 import com.example.cloud.mi_core.net.callback.ISuccess;
-import com.example.cloud.mi_core.ui.LoaderStyle;
+import com.example.cloud.mi_core.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.WeakHashMap;

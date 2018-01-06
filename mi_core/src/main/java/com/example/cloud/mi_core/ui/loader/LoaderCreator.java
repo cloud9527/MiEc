@@ -1,4 +1,4 @@
-package com.example.cloud.mi_core.ui;
+package com.example.cloud.mi_core.ui.loader;
 
 import android.content.Context;
 import android.text.TextUtils;

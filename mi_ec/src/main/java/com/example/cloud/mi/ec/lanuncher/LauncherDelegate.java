@@ -8,6 +8,7 @@ import android.view.View;
 import com.example.cloud.mi.ec.R;
 import com.example.cloud.mi.ec.R2;
 import com.example.cloud.mi_core.delegates.LatteDelegate;
+import com.example.cloud.mi_core.util.storage.LattePreference;
 import com.example.cloud.mi_core.util.timer.BaseTimerTask;
 import com.example.cloud.mi_core.util.timer.ITimerListener;
 
@@ -31,7 +32,11 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
 
     @OnClick(R2.id.tv_launcher_timer)
     void onClickTimerView() {
-
+        if (mTimer != null) {
+            mTimer.cancel();
+            mTimer = null;
+            checkIsShowScroll();
+        }
     }
 
     private void initTime() {
@@ -50,6 +55,18 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
         initTime();
     }
 
+    /**
+     * 判断是否展示滑动启动页
+     */
+    private void checkIsShowScroll() {
+        if (!LattePreference.getAppFlag(ScrollLauncherTag.HAS_FIRST_LAUNCHER_APP.name())) {
+            //启动新fragment
+            start(new LauncherScrollDelegate(), SINGLETASK);
+        } else {
+
+        }
+    }
+
     @Override
     public void onTime() {
         getProxActivity().runOnUiThread(new Runnable() {
@@ -62,6 +79,7 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
                         if (mTimer != null) {
                             mTimer.cancel();
                             mTimer = null;
+                            checkIsShowScroll();
                         }
                     }
                 }
