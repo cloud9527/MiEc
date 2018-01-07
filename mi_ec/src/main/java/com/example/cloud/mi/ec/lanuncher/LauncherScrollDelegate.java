@@ -7,6 +7,7 @@ import android.view.View;
 import com.bigkoo.convenientbanner.ConvenientBanner;
 import com.bigkoo.convenientbanner.listener.OnItemClickListener;
 import com.example.cloud.mi.ec.R;
+import com.example.cloud.mi.ec.sign.SignInDelegate;
 import com.example.cloud.mi_core.delegates.LatteDelegate;
 import com.example.cloud.mi_core.ui.launcher.LauncherHolderCreator;
 import com.example.cloud.mi_core.util.storage.LattePreference;
@@ -50,6 +51,7 @@ public class LauncherScrollDelegate extends LatteDelegate implements OnItemClick
     public void onItemClick(int position) {
         if (position == INTEGERS.size() - 1) {
             LattePreference.setAppFlag(ScrollLauncherTag.HAS_FIRST_LAUNCHER_APP.name(),true);
+            start(new SignInDelegate());
         }
     }
 }

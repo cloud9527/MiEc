@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.example.cloud.mi.ec.R;
 import com.example.cloud.mi.ec.R2;
+import com.example.cloud.mi.ec.sign.SignInDelegate;
 import com.example.cloud.mi_core.delegates.LatteDelegate;
 import com.example.cloud.mi_core.util.storage.LattePreference;
 import com.example.cloud.mi_core.util.timer.BaseTimerTask;
@@ -63,7 +64,7 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
             //启动新fragment
             start(new LauncherScrollDelegate(), SINGLETASK);
         } else {
-
+            start(new SignInDelegate());
         }
     }
 

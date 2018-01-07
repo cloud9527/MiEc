@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 
+import com.example.cloud.mi.ec.lanuncher.LauncherDelegate;
 import com.example.cloud.mi.ec.sign.ISignListener;
-import com.example.cloud.mi.ec.sign.SignUpDelegate;
 import com.example.cloud.mi_core.activites.ProxyActivity;
 import com.example.cloud.mi_core.delegates.LatteDelegate;
 
@@ -22,7 +22,7 @@ public class ExampleActivity extends ProxyActivity implements ISignListener {
 
     @Override
     public LatteDelegate setRootLatteDelegate() {
-        return new SignUpDelegate();
+        return new LauncherDelegate();
     }
 
     @Override
