@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.example.cloud.mi.ec.R;
 import com.example.cloud.mi.ec.R2;
+import com.example.cloud.mi.ec.main.EcBottomDelegate;
 import com.example.cloud.mi_core.delegates.LatteDelegate;
 
 import butterknife.BindView;
@@ -28,7 +29,8 @@ public class SignInDelegate extends LatteDelegate {
 
     @OnClick(R2.id.btn_sign_in)
     void onClickSignIn() {
-        if (checkForm()) {
+        start(new EcBottomDelegate());
+//        if (checkForm()) {
 //            RestClient.builder()
 //                    .url("http://192.168.56.1:8080/RestDataServer/api/user_profile.php")
 //                    .params("email", mEmail.getText().toString())
@@ -43,7 +45,7 @@ public class SignInDelegate extends LatteDelegate {
 //                    .build()
 //                    .post();
             Toast.makeText(getContext(), "signIN", Toast.LENGTH_SHORT).show();
-        }
+//        }
     }
 
 
@@ -74,7 +76,7 @@ public class SignInDelegate extends LatteDelegate {
 
     @OnClick(R2.id.tv_link_sign_up)
     void onClickLink() {
-        start(new SignUpDelegate());
+
     }
 
     @Override
