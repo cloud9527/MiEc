@@ -1,4 +1,4 @@
-package com.example.cloud.mi.ec.lanuncher;
+package com.example.cloud.mi.ec.launcher;
 
 /**
  * Created by 傅令杰 on 2017/4/22

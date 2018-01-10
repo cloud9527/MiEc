@@ -1,6 +1,7 @@
 package com.example.cloud.mi_core.app;
 
 import android.content.Context;
+import android.os.Handler;
 
 /**
  * Created by Administrator on 2017/12/30.
@@ -25,5 +26,9 @@ public class Latte {
 
     public static Context getApplicationContext() {
         return getConfiguration(ConfigKeys.APPLICATION_CONTEXT);
+    }
+
+    public static Handler getHandler() {
+        return getConfiguration(ConfigKeys.HANDLER);
     }
 }

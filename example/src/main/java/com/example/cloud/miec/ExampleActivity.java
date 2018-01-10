@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 
-import com.example.cloud.mi.ec.lanuncher.LauncherDelegate;
+import com.example.cloud.mi.ec.launcher.LauncherDelegate;
 import com.example.cloud.mi.ec.sign.ISignListener;
 import com.example.cloud.mi_core.activites.ProxyActivity;
 import com.example.cloud.mi_core.delegates.LatteDelegate;

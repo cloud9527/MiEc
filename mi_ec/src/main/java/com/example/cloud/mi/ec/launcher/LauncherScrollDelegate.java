@@ -1,4 +1,4 @@
-package com.example.cloud.mi.ec.lanuncher;
+package com.example.cloud.mi.ec.launcher;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
