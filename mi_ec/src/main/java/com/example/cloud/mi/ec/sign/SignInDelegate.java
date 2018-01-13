@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TextInputEditText;
 import android.util.Patterns;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.cloud.mi.ec.R;
 import com.example.cloud.mi.ec.R2;
@@ -44,7 +43,6 @@ public class SignInDelegate extends LatteDelegate {
 //                    })
 //                    .build()
 //                    .post();
-            Toast.makeText(getContext(), "signIN", Toast.LENGTH_SHORT).show();
 //        }
     }
 

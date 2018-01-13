@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.cloud.mi_core.delegates.LatteDelegate;
+import com.example.cloud.mi_core.net.MiEcUrl;
 import com.example.cloud.mi_core.net.RestClient;
 import com.example.cloud.mi_core.net.callback.IError;
 import com.example.cloud.mi_core.net.callback.IFailure;
@@ -29,7 +30,7 @@ public class ExampleDelegate extends LatteDelegate {
 
     private void test() {
         RestClient.builder()
-                .url("http://127.0.0.1/index")
+                .url(MiEcUrl.INDEX_DATA)
                 .loader(getContext())
                 .success(new ISuccess() {
                     @Override

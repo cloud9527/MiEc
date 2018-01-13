@@ -1,8 +1,11 @@
 package com.example.cloud.mi_core;
 
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.widget.Toast;
 
 import com.example.cloud.mi_core.app.Latte;
+import com.example.cloud.mi_core.net.RestClient;
+import com.example.cloud.mi_core.net.callback.ISuccess;
 
 /**
  * Created by cloud on 2018/1/10.
@@ -27,6 +30,19 @@ public class RefreshHandler implements SwipeRefreshLayout.OnRefreshListener {
         }, 2000);
     }
 
+    public void firstPage(String url) {
+        RestClient.builder()
+                .url(url)
+                .success(new ISuccess() {
+                    @Override
+                    public void onSuccess(String response) {
+                        Toast.makeText(Latte.getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                    }
+                })
+                .build()
+                .get();
+
+    }
 
     @Override
     public void onRefresh() {

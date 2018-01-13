@@ -33,4 +33,5 @@ dependencies {
     compile project(':mi_core')
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
+    compile 'cn.leancloud.android:avoscloud-sdk:v4.4.4'
 }

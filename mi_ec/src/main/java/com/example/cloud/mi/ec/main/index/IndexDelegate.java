@@ -7,12 +7,20 @@ import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.cloud.mi.ec.R;
 import com.example.cloud.mi.ec.R2;
 import com.example.cloud.mi_core.RefreshHandler;
 import com.example.cloud.mi_core.delegates.bottom.BottomItemDelegate;
+import com.example.cloud.mi_core.net.MiEcUrl;
+import com.example.cloud.mi_core.net.RestClient;
+import com.example.cloud.mi_core.net.callback.ISuccess;
+import com.example.cloud.mi_core.recycler.MultipleFields;
+import com.example.cloud.mi_core.recycler.MultipleItemEntity;
 import com.joanzapata.iconify.widget.IconTextView;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 
@@ -38,6 +46,20 @@ public class IndexDelegate extends BottomItemDelegate {
     @Override
     public void onBindView(@Nullable Bundle savedInstanceState, View rootView) {
         mRefreshHandler = new RefreshHandler(mRefreshLayout);
+        RestClient.builder()
+                .url(MiEcUrl.INDEX_DATA)
+                .success(new ISuccess() {
+                    @Override
+                    public void onSuccess(String response) {
+                        final IndexDataConverter indexDataConverter = new IndexDataConverter();
+                        indexDataConverter.setJsonData(response);
+                        final ArrayList<MultipleItemEntity> list = indexDataConverter.convert();
+                        final String field = list.get(1).getField(MultipleFields.IMAGE_URL);
+                        Toast.makeText(getContext(), field, Toast.LENGTH_LONG).show();
+
+                    }
+                })
+                .build().get();
     }
 
     private void initRefreshLayout() {
@@ -51,6 +73,7 @@ public class IndexDelegate extends BottomItemDelegate {
     public void onLazyInitView(@Nullable Bundle savedInstanceState) {
         super.onLazyInitView(savedInstanceState);
         initRefreshLayout();
+//        mRefreshHandler.firstPage(MiEcUrl.INDEX_DATA);
     }
 
     @Override
