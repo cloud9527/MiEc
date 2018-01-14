@@ -9,6 +9,8 @@ import com.example.cloud.mi.ec.sign.ISignListener;
 import com.example.cloud.mi_core.activites.ProxyActivity;
 import com.example.cloud.mi_core.delegates.LatteDelegate;
 
+import qiu.niorgai.StatusBarCompat;
+
 public class ExampleActivity extends ProxyActivity implements ISignListener {
 
     @Override
@@ -18,6 +20,8 @@ public class ExampleActivity extends ProxyActivity implements ISignListener {
         if (supportActionBar != null) {
             supportActionBar.hide();
         }
+
+        StatusBarCompat.translucentStatusBar(this, true);
     }
 
     @Override
