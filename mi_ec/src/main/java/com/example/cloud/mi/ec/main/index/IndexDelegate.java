@@ -12,6 +12,7 @@ import android.view.View;
 
 import com.example.cloud.mi.ec.R;
 import com.example.cloud.mi.ec.R2;
+import com.example.cloud.mi.ec.main.EcBottomDelegate;
 import com.example.cloud.mi_core.delegates.bottom.BottomItemDelegate;
 import com.example.cloud.mi_core.recycler.BaseDecoration;
 import com.example.cloud.mi_core.ui.refresh.RefreshHandler;
@@ -71,6 +72,8 @@ public class IndexDelegate extends BottomItemDelegate {
         mRecyclerView.setLayoutManager(gridLayoutManager);
         mRecyclerView.addItemDecoration(BaseDecoration.create(ContextCompat.getColor(getContext(),
                 R.color.app_background), 5));
+        final EcBottomDelegate ecBottomDelegate = getParentDelegate();
+        mRecyclerView.addOnItemTouchListener(IndexItemClickListener.create(ecBottomDelegate));
     }
 
 }
