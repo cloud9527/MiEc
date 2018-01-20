@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.webkit.WebView;
 
+import com.example.cloud.mi_core.app.ConfigKeys;
+import com.example.cloud.mi_core.app.Latte;
 import com.example.cloud.mi_core.delegates.LatteDelegate;
 import com.example.cloud.mi_core.delegates.web.route.RouteKeys;
 
@@ -20,6 +22,7 @@ public abstract class WebDelegate extends LatteDelegate implements IWebViewIniti
     private final ReferenceQueue<WebView> WEB_VIEW_QUENE = new ReferenceQueue<>();
     private String mUrl = null;
     private boolean mIsWebViewAvailable = false;
+    private LatteDelegate mTopDelegate = null;
 
     public WebDelegate() {
 
@@ -50,7 +53,8 @@ public abstract class WebDelegate extends LatteDelegate implements IWebViewIniti
                 mWebView = initializer.initWebView(mWebView);
                 mWebView.setWebViewClient(initializer.initWebViewClient());
                 mWebView.setWebChromeClient(initializer.initWebChromeClient());
-                mWebView.addJavascriptInterface(LatteWebInterface.create(this), "latte");
+                final String name = Latte.getConfiguration(ConfigKeys.JAVASCRIPT_INTERFACE);
+                mWebView.addJavascriptInterface(LatteWebInterface.create(this), name);
                 mIsWebViewAvailable = true;
             } else {
                 throw new NullPointerException("Initializer is null");
@@ -58,6 +62,16 @@ public abstract class WebDelegate extends LatteDelegate implements IWebViewIniti
         }
     }
 
+    public void setTopDelegate(LatteDelegate topDelegate) {
+        mTopDelegate = topDelegate;
+    }
+
+    public LatteDelegate getTopDelegate() {
+        if (mTopDelegate == null) {
+            mTopDelegate = this;
+        }
+        return mTopDelegate;
+    }
 
     public WebView getWebView() {
         if (mWebView == null) {

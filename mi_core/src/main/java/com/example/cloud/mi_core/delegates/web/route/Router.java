@@ -32,14 +32,10 @@ public class Router {
             callPhone(delegate.getContext(), url);
             return true;
         }
-        final LatteDelegate parentDelegate = delegate.getParentDelegate();
-        final WebDelegateImpl webDelegate = WebDelegateImpl.create(url);
-        if (parentDelegate == null) {
-            delegate.start(webDelegate);
-        } else {
-            parentDelegate.start(webDelegate);
-        }
+        final LatteDelegate topDelegate = delegate.getTopDelegate();
 
+        final WebDelegateImpl webDelegate = WebDelegateImpl.create(url);
+        topDelegate.start(webDelegate);
         return true;
     }
 

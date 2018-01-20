@@ -1,5 +1,6 @@
 package com.example.cloud.mi_core.delegates.web;
 
+import android.annotation.SuppressLint;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -9,6 +10,7 @@ import android.webkit.WebView;
  */
 
 public class WebViewInitializer {
+    @SuppressLint("SetJavaScriptEnabled")
     public WebView createWebView(WebView webView) {
         WebView.setWebContentsDebuggingEnabled(true);
         webView.setHorizontalScrollBarEnabled(false);
@@ -22,6 +24,7 @@ public class WebViewInitializer {
         });
 
         WebSettings settings = webView.getSettings();
+        settings.setJavaScriptEnabled(true);
         String userAgentString = settings.getUserAgentString();
         settings.setUserAgentString(userAgentString + "Latte");
         //隐藏缩放控件

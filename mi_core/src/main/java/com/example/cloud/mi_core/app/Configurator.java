@@ -2,7 +2,10 @@ package com.example.cloud.mi_core.app;
 
 
 import android.os.Handler;
+import android.support.annotation.NonNull;
 
+import com.example.cloud.mi_core.delegates.web.event.Event;
+import com.example.cloud.mi_core.delegates.web.event.EventManager;
 import com.joanzapata.iconify.IconFontDescriptor;
 import com.joanzapata.iconify.Iconify;
 
@@ -91,4 +94,15 @@ public class Configurator {
         }
         return (T) LATTE_CONFIGS.get(key);
     }
+
+    public Configurator withJavascriptInterface(@NonNull String name) {
+        LATTE_CONFIGS.put(ConfigKeys.JAVASCRIPT_INTERFACE, name);
+        return this;
+    }
+    public Configurator withWebEvent(@NonNull String name, @NonNull Event event) {
+        final EventManager manager = EventManager.getInstance();
+        manager.addEvent(name, event);
+        return this;
+    }
+
 }

@@ -10,6 +10,23 @@
 <body>
 
 <h1>这是本地页面1</h1>
-<a href="second.html">点击跳转</a>
+<button id="test">测试时间</button>
+<script type="text/javascript">
+
+
+    function nativeCall(){
+     alert('原生调用');
+
+    }
+
+    document.getElementById("test").onclick = function(){
+        var command = {'action'  :  'test'};
+        latte.event(JSON.stringify(command));
+    };
+
+
+
+</script>
+
 </body>
 </html>
