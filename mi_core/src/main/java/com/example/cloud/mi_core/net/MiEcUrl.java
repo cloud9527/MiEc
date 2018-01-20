@@ -10,4 +10,5 @@ public class MiEcUrl {
     public static final String SORT_LIST_DATA = "588ada5bdd49e94d04b7.json";
     public static final String SORT_CONTENT_DATA_1 = "cd36ad805deb8ecf1282.json";
     public static final String SORT_CONTENT_DATA_2 = "004f29868dc4407f0c51.json";
+    public static final String SHOP_CART_DATA = "3aa6342888a3ae45f322.json";
 }
