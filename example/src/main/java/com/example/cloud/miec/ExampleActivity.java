@@ -14,6 +14,11 @@ import qiu.niorgai.StatusBarCompat;
 public class ExampleActivity extends ProxyActivity implements ISignListener {
 
     @Override
+    public LatteDelegate setRootDelegate() {
+         return new LauncherDelegate();
+    }
+
+    @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         final ActionBar supportActionBar = getSupportActionBar();
@@ -24,10 +29,6 @@ public class ExampleActivity extends ProxyActivity implements ISignListener {
         StatusBarCompat.translucentStatusBar(this, true);
     }
 
-    @Override
-    public LatteDelegate setRootLatteDelegate() {
-        return new LauncherDelegate();
-    }
 
     @Override
     public void onSignInSuccess() {

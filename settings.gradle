@@ -1,1 +1,1 @@
-include ':example', ':mi_annotations', ':mi_compiler', ':mi_core', ':mi_ec'
+include ':example', ':mi_annotations', ':mi_compiler', ':mi_core', ':mi_ec', ':mi_ui'

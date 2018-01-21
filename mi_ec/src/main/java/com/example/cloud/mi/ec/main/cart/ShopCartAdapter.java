@@ -11,6 +11,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.cloud.mi.ec.R;
 import com.example.cloud.mi_core.app.Latte;
+import com.example.cloud.mi_core.net.MiEcUrl;
 import com.example.cloud.mi_core.net.RestClient;
 import com.example.cloud.mi_core.net.callback.ISuccess;
 import com.example.cloud.mi_core.recycler.MultipleFields;
@@ -125,7 +126,7 @@ public final class ShopCartAdapter extends MultipleRecyclerAdapter {
                         final int currentCount = entity.getField(ShopCartItemFields.COUNT);
                         if (Integer.parseInt(tvCount.getText().toString()) > 1) {
                             RestClient.builder()
-                                    .url("shop_cart_count.php")
+                                    .url(MiEcUrl.SHOP_CART_DATA)
                                     .loader(mContext)
                                     .params("count", currentCount)
                                     .success(new ISuccess() {
@@ -152,7 +153,7 @@ public final class ShopCartAdapter extends MultipleRecyclerAdapter {
                     public void onClick(View v) {
                         final int currentCount = entity.getField(ShopCartItemFields.COUNT);
                         RestClient.builder()
-                                .url("shop_cart_count.php")
+                                .url(MiEcUrl.SHOP_CART_DATA)
                                 .loader(mContext)
                                 .params("count", currentCount)
                                 .success(new ISuccess() {

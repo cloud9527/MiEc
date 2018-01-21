@@ -28,7 +28,7 @@ public class SignInDelegate extends LatteDelegate {
 
     @OnClick(R2.id.btn_sign_in)
     void onClickSignIn() {
-        start(new EcBottomDelegate());
+        getSupportDelegate().start(new EcBottomDelegate());
 //        if (checkForm()) {
 //            RestClient.builder()
 //                    .url("http://192.168.56.1:8080/RestDataServer/api/user_profile.php")

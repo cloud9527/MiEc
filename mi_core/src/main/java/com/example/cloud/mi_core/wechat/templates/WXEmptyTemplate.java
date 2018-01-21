@@ -8,8 +8,9 @@ import com.example.cloud.mi_core.delegates.LatteDelegate;
  */
 
 public class WXEmptyTemplate extends ProxyActivity {
+
     @Override
-    public LatteDelegate setRootLatteDelegate() {
+    public LatteDelegate setRootDelegate() {
         return null;
     }
 }

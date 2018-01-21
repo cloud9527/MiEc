@@ -62,15 +62,15 @@ public class LauncherDelegate extends LatteDelegate implements ITimerListener {
     private void checkIsShowScroll() {
         if (!LattePreference.getAppFlag(ScrollLauncherTag.HAS_FIRST_LAUNCHER_APP.name())) {
             //启动新fragment
-            start(new LauncherScrollDelegate(), SINGLETASK);
+            getSupportDelegate().start(new LauncherScrollDelegate(), SINGLETASK);
         } else {
-            start(new SignInDelegate());
+            getSupportDelegate().start(new SignInDelegate());
         }
     }
 
     @Override
     public void onTime() {
-        getProxActivity().runOnUiThread(new Runnable() {
+        getSupportDelegate().getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 if (mTvLauncherTimer != null) {

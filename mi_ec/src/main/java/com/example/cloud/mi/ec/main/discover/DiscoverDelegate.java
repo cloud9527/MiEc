@@ -28,6 +28,6 @@ public class DiscoverDelegate extends BottomItemDelegate {
         super.onLazyInitView(savedInstanceState);
         WebDelegateImpl webDelegate = WebDelegateImpl.create("index.html");
         webDelegate.setTopDelegate(this.getParentDelegate());
-        loadRootFragment(R.id.web_discovery_container, webDelegate);
+        getSupportDelegate().loadRootFragment(R.id.web_discovery_container, webDelegate);
     }
 }
