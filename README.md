@@ -13,4 +13,4 @@
 7. BaseRecyclerViewAdapterHelper
 8. glide
 
-![Screenshot_1516803108](C:\Users\Administrator\Desktop\Screenshot_1516803135.png)
+![首页](https://github.com/cloud9527/MiEc/blob/master/pic/Screenshot_1516803108.png?raw=true)
