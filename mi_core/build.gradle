@@ -87,4 +87,7 @@ dependencies {
     //Google AutoValue
     provided 'com.google.auto.value:auto-value:1.4.1'
     annotationProcessor "com.google.auto.value:auto-value:1.4.1"
+
+    //圆形图片
+    compile 'de.hdodenhof:circleimageview:2.1.0'
 }
