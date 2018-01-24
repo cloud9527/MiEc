@@ -13,4 +13,4 @@
 7. BaseRecyclerViewAdapterHelper
 8. glide
 
-![首页](https://github.com/cloud9527/MiEc/blob/master/pic/Screenshot_1516803108.png?raw=true)
+![首页](https://github.com/cloud9527/MiEc/blob/master/pic/Screenshot_1516803108.png?raw=true){:height="100px" width="400px"}
